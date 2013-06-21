@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Cordage::VERSION
   s.authors     = ['Adam Hallett']
   s.email       = ['adam.t.hallett@gmail.com']
+  s.licenses    = ['MIT']
   s.homepage    = 'http://github.com/atomical/cordage'
   s.summary     = 'Flexible record based associations in ActiveFedora models.'
   s.description = 'Flexible record based associations in ActiveFedora models.'
