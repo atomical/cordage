@@ -3,6 +3,7 @@ cordage
 
 Flexible record based associations in ActiveFedora models.
 
+Cordage creates a one-way association between an ActiveFedora object and an ActiveRecord object.
 
 #### Install
 
@@ -12,6 +13,12 @@ gem install cordage
 
 #### Example
 
+```ruby
+ # app/models/user.rb
+ class User < ActiveRecord::Base
+
+ end
+```
 
 ```ruby
   # app/models/video.rb
