@@ -11,10 +11,10 @@ module Cordage
         def cordage(association_name, options = {} )
           association_name         = association_name.to_s
           model_klass_name         = options[:class_name].present? ? options[:class_name].to_s.underscore : association_name
-          model_klass              = model_klass_name.classify.constantize
+          model_klass              = is_defined_class?(model_klass_name) ? model_klass_name.classify.constantize : nil
           association_primary_key  = options[:primary_key] || model_klass.primary_key.to_sym
 
-          unless model_klass.superclass == ::ActiveRecord::Base
+          unless model_klass.nil? || model_klass.superclass == ::ActiveRecord::Base
             raise ArgumentError, 'cordage :class_name argument must be an instance that inherits from ActiveRecord::Base'
           end
           
@@ -31,6 +31,15 @@ module Cordage
             proxy.clear
             proxy << val
             proxy
+          end
+        end
+
+        def is_defined_class?( class_name )
+          begin
+            klass = Module.const_get( class_name.to_s )
+            true
+          rescue NameError
+            false
           end
         end
       end

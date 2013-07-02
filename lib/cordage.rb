@@ -1,3 +1,4 @@
+require 'active-fedora'
 require 'cordage/adapters/active_record'
 require 'cordage/adapters/active_record/association'
 
